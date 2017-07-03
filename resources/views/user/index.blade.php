@@ -36,6 +36,9 @@
                 {{-- expr --}}
             
              <div class="images_wrap">
+               <div class="col-md-12 panel">
+                 <h3 class="text-center">Your Images</h3>
+               </div>
                  @foreach ($images as $image)
                      {{-- expr --}}
                 <div class="col-lg-4 col-md-4 col-xs-12 thumb">

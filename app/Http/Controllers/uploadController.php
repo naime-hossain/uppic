@@ -125,7 +125,7 @@ class uploadController extends Controller
         $user=Auth::user();
         $this->validate($request,[
            'image'=>'required',
-           'title'=>'required|unique:uploads',
+           'title'=>'required|unique:uploads|max:40',
             ]);
         //provide the temporary path
         // return $request->file('image');
@@ -210,7 +210,7 @@ class uploadController extends Controller
         $file=Upload::findOrFail($id);
         $this->validate($request,[
           
-           'title'=>'required|unique:uploads',
+           'title'=>'required|unique:uploads|max:40',
             ]);
         $input=$request->all();
         if ($request->hasFile('image')) {
