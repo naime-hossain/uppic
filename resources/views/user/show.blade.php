@@ -27,7 +27,7 @@
                           <div class="col-md-4">
                               
                         
- 							<img class="img-responsive img-raised img-rounded" src="/{{ $user->photo? $user->photo->image: '1' }}" alt="{{ $user->name }}">
+ 							<img class="img-responsive img-raised img-rounded" src="/storage/user/{{ $user->pro_pic? $user->pro_pic: 'default.png' }}" alt="{{ $user->name }}">
  						
 
  							@if (Auth::check())
@@ -90,15 +90,22 @@
                   <button type="button" class="btn btn-primary pull-right 3x" data-dismiss="modal" aria-hidden="true">&times;</button>
                   <h4 class="modal-title" id="edituser{{ $user->id }}Label">edit user </h4>
                 </div>
-                {!! Form::model($user,['action'=>['UserController@update',$user->id],'method'=>'put']) !!}
+                {!! Form::model($user,['action'=>['UserController@update',$user->id],'method'=>'put','files'=>true]) !!}
                     <div class="modal-body">
                           <div class="form-group col-md-6 {{ $errors->has('title') ? ' has-error' : '' }}">
-                         {!! Form::label('title','user title', []) !!}
-                          {!! Form::text('title',null, ['class'=>"form-control"]) !!}
+                         {!! Form::label('name','user name', []) !!}
+                          {!! Form::text('name',null, ['class'=>"form-control"]) !!}
+                         </div>
+                           <div class="form-group col-md-6 {{ $errors->has('title') ? ' has-error' : '' }}">
+                         {!! Form::label('email','user email', []) !!}
+                          {!! Form::email('email',null, ['class'=>"form-control"]) !!}
+                         </div>
+                          <div class=" col-md-6 {{ $errors->has('title') ? ' has-error' : '' }}">
+                         {!! Form::label('image','select user image', ['class'=>'btn btn-info']) !!}
+                          {!! Form::file('image', ['class'=>"form-control"]) !!}
                          </div>
                     
 
-                       
                     </div>
                     <div class="modal-footer">
                       <div class="form-group col-md-12">

@@ -19,6 +19,7 @@ class CreateUploadsTable extends Migration
             $table->string('size');
             $table->text('title');
             $table->integer('user_id');
+            
             $table->timestamps();
         });
     }

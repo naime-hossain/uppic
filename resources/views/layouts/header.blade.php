@@ -40,7 +40,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand fa fa-3x" href="{{ url('/') }}">
-                        {{ config('app.name', 'Larablog') }}
+                        {{ config('app.name', 'LaraUppic') }}
                     </a>
                 </div>
 
@@ -65,6 +65,7 @@
                                 <ul class="dropdown-menu" role="menu">
                              
                                          <li><a href="{{ route('user.show',Auth::user()->id) }}" title="">Profile</a></li>
+                                         <li><a href="{{ route('user.images') }}" title="">Upload</a></li>
                                          
                                        
                                         <li>

@@ -79,8 +79,36 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+         $user=User::findOrFail($id);
+         $input=$request->all();
+         if ($input) {
+                if ($request->hasFile('image')) {
+          if ($user->pro_pic) {
+            Storage::delete('public/user/'.$user->pro_pic);
+          }
+            $filename=$user->name.$request->image->getClientOriginalName();
+            $request->image->storeAs('public/user',$filename);
+            $input['pro_pic']=$filename;
+            
+            // $input['user_id']=$user->id;
+            unset($input['image']);
+          $user->update($input);
+            return back()->with(['message'=>'User info updated successfully']);
+          }
+     
+
+         else{
+           $user->update($input);
+            return back()->with(['message'=>'User info updated successfully']);
+            
+
+    
+            }
+    }else{
+         return back()->with(['message'=>'Nothing is updated']);
+         }
+       
+}
 
     /**
      * Remove the specified resource from storage.
@@ -90,6 +118,12 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user=User::findOrFail($id);
+         if ($user->pro_pic) {
+            Storage::delete('public/user/'.$user->pro_pic);
+          }
+          $user->delete();
     }
+
+
 }
