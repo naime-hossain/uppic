@@ -206,6 +206,35 @@ class uploadController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $user=Auth::user();
+        $file=Upload::findOrFail($id);
+        $this->validate($request,[
+          
+           'title'=>'required|unique:uploads',
+            ]);
+        $input=$request->all();
+        if ($request->hasFile('image')) {
+            
+            
+          if (Storage::delete('public/upload/'.$file->path)) {
+            $filename=random_int(0,time()).$request->image->getClientOriginalName();
+            $filesize=$request->image->getClientSize();
+            $request->image->storeAs('public/upload',$filename);
+            $input['path']=$filename;
+            $input['size']=$filesize;
+            
+            // $input['user_id']=$user->id;
+            unset($input['image']);
+          $upload=$file->update($input);
+            return back()->with(['message'=>'File updated successfully']);
+          }
+     
+
+        }else{
+            $upload=$file->update($input);
+            return back()->with(['message'=>'Title updated successfully']);
+            
+        }
     }
 
     /**
@@ -216,6 +245,12 @@ class uploadController extends Controller
      */
     public function destroy($id)
     {
-        //
+ $file=Upload::findOrFail($id);
+  if (Storage::delete('public/upload/'.$file->path)) {
+    $file->delete();
+ return back()->with(['message'=>'File deleted successfully']);
+ }
+
+ 
     }
 }

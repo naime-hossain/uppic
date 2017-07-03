@@ -69,9 +69,9 @@ img.raised {
 }
 
 .welcome_wrap {
-  width: 100%;
-  background: url(/images/21.jpg);
-  background-size: 100% 100%;
+    width: 100%;
+    background: url(/images/bg2.jpeg);
+    background-size: 100% 100%;
 }
 
 .welcome_text {
@@ -126,9 +126,9 @@ img.raised {
 }
 
 .body_wrap {
-  padding: 60px 0px 60px 0px;
-  background: #002444;
-  color: #fff;
+    padding: 60px 0px 60px 0px;
+    background: #2a4055;
+    color: #fff;
 }
 
 .sinle_comment_wrap {
@@ -326,8 +326,8 @@ option {
 }
 
 .footer_wrap {
-  background: #002c53;
-  padding: 10px 0px 30px 0px;
+    background: #1f3b50;
+    padding: 10px 0px 30px 0px;
 }
 
 .alt_text_wrap {
@@ -401,6 +401,7 @@ option {
 .images_wrap {
     overflow: hidden;
     width: 100%;
+    padding: 20px 0px;
   
 }
 a.thumbnail img {
@@ -415,3 +416,74 @@ a.thumbnail img {
         top: -10px;
         padding: 5px 8px;
     }
+// .grid figure h2 {
+//     padding: 10% 0 20px 0;
+// }
+// figure.effect-apollo img {
+//     opacity: 0.95;
+//     -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+//     transition: opacity 0.35s, transform 0.35s;
+//     -webkit-transform: scale3d(1.05,1.05,1);
+//     transform: scale3d(1.05,1.05,1);
+//     min-height: 360px;
+// }
+.grid {
+    position: relative;
+    clear: both;
+    margin: 0 auto;
+    padding: 1em 0 4em;
+    max-width: 100%;
+    list-style: none;
+    text-align: center;
+    overflow: hidden;
+}
+.grid figure {
+    min-width: auto;
+    max-width: auto;
+    width: 100%;
+  
+    margin: 15px 0px;
+}
+.grid figure img {
+  
+    min-height: 320px;
+    max-height: 320px;
+    width: 100%;
+}
+.grid a {
+    cursor: -webkit-zoom-in;
+}
+figure.effect-milo img {
+    max-width: none;
+    width: -webkit-calc(100% + 60px);
+    width: calc(100% + 60px);
+    opacity: 1;
+    -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: translate3d(-30px,0,0) scale(1.22);
+    transform: translate3d(-30px,0,0) scale(1.22);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.edit-icon {
+    border-radius: 5%;
+    position: absolute;
+    right: 38px;
+    top: -9px;
+    padding: 5px 8px;
+    font-size: 12px;
+  
+    /* padding: 37px; */
+}
+.close-icon {
+    border-radius: 5%;
+ 
+    font-size: 12px;
+  
+    /* padding: 37px; */
+}
+.modal-content {
+    
+    background-color: #1a3244;
+  }

@@ -5,6 +5,12 @@
               $("html").niceScroll({
                cursorcolor:"#002c53"
         });
+
+    lightbox.option({
+      'resizeDuration': 200,
+      'wrapAround': true
+    });
+
         });   
 
       $(window).ready(

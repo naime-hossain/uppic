@@ -11,8 +11,10 @@
    
     {{--  <script src="/js/jquery-2.1.1.min.js">
     </script>  --}}
-     <script src="/js/jquery.nicescroll.min.js">
-    </script> 
+     <script src="/js/jquery.nicescroll.min.js"> </script> 
+    
+   
+     <script src="/js/lightbox.min.js"></script>
         <script src="/js/material.min.js"></script>
 
 

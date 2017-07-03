@@ -14,6 +14,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="/css/font-awesome.min.css" rel="stylesheet" />
 <link href="/css/material-kit.css" rel="stylesheet"/>
+<link href="/css/set1.css" rel="stylesheet"/>
+<link href="/css/set2.css" rel="stylesheet"/>
+<link href="/css/lightbox.min.css" rel="stylesheet"/>
     <link href="/css/style.css" rel="stylesheet"/>
 </head>
 <body>
@@ -61,7 +64,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                              
-                                         <li><a href="{{ route('user.show',Auth::user()->name) }}" title="">Profile</a></li>
+                                         <li><a href="{{ route('user.show',Auth::user()->id) }}" title="">Profile</a></li>
                                          
                                        
                                         <li>
