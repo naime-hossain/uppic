@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Upload;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 class UserController extends Controller
 {
 

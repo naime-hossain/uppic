@@ -1,11 +1,16 @@
 @extends('layouts.app')
-
+@section('heading')
+    {{-- expr --}}
+    <h1>Login Form</h1>
+@endsection
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+                   @if ($errors->count()>0)
+                      @include('alert.error')
+                    @endif
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}

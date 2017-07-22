@@ -2,7 +2,8 @@
 @section('heading')
     {{-- expr --}}
          <div class="col-lg-12">
-                <h1 class="">Thumbnail Gallery</h1>
+                <h1 class="">welcome to Uppic</h1>
+                <p>share your photo memory with us</p>
         </div>
 @endsection
 
@@ -81,8 +82,8 @@
                             <img data-action="zoom" class="img-responsive img-raised img-rounded" src="storage/upload/{{$image->path}}" alt="{{ $image->title }}"/>
                             <figcaption>
                                 <div>
-                                    <h2>By <span>{{ $image->user->name }}</span></h2>
-                                    <p>{{ $image->title }}
+                                    <h2>{{$image->created_at->diffForHumans()}}</h2>
+                                    <p class="">By <span>{{ $image->user->name }}</span><br>{{ $image->title }}
                                      
                                       
                                     </p>
