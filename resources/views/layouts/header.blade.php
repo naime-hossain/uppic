@@ -12,12 +12,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="/css/font-awesome.min.css" rel="stylesheet" />
-<link href="/css/material-kit.css" rel="stylesheet"/>
-<link href="/css/set1.css" rel="stylesheet"/>
-<link href="/css/set2.css" rel="stylesheet"/>
-<link href="/css/lightbox.min.css" rel="stylesheet"/>
-    <link href="/css/style.css" rel="stylesheet"/>
+  
 </head>
 <body>
  <div id="preloader">
