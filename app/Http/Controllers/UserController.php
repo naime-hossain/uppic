@@ -7,6 +7,8 @@ use App\User;
 use App\Upload;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use Image;
 class UserController extends Controller
 {
 
@@ -84,11 +86,15 @@ class UserController extends Controller
          $input=$request->all();
          if ($input) {
                 if ($request->hasFile('image')) {
-          if ($user->pro_pic) {
-            Storage::delete('public/user/'.$user->pro_pic);
+          if ($user->pro_pic)
+          {
+            File::delete('images/users/'.$user->pro_pic);
           }
             $filename=$user->name.$request->image->getClientOriginalName();
-            $request->image->storeAs('public/user',$filename);
+             if (!file_exists('images/users')) {
+                mkdir('images/users');
+            }
+            $thumb=Image::make($request->image)->fit(400, 320)->save('images/users/'.$filename);
             $input['pro_pic']=$filename;
             
             // $input['user_id']=$user->id;
@@ -121,7 +127,7 @@ class UserController extends Controller
     {
         $user=User::findOrFail($id);
          if ($user->pro_pic) {
-            Storage::delete('public/user/'.$user->pro_pic);
+            File::delete('images/users/'.$user->pro_pic);
           }
           $user->delete();
     }

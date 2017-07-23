@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Auth;
 use App\Upload;
 use App\User;
+use Image;
 class uploadController extends Controller
 {
 
@@ -154,7 +156,16 @@ class uploadController extends Controller
             // $input=$request->all();
             $filename=random_int(0,time()).$file->getClientOriginalName();
             $filesize=$file->getClientSize();
-            $file->storeAs('public/upload',$filename);
+            // $file->storeAs('public/upload',$filename);
+            //create directory if doesnot exists
+            if (!file_exists('images')) {
+                mkdir('images');
+            }
+             if (!file_exists('images/thumbs')) {
+                mkdir('images/thumbs');
+            }
+           $cover=Image::make($file)->fit(700, 500)->save('images/'.$filename);
+           $thumb=Image::make($file)->fit(400, 320)->save('images/thumbs/'.$filename);
             $input['path']=$filename;
             $input['size']=$filesize;
             $input['title']=$request->title;
@@ -216,10 +227,11 @@ class uploadController extends Controller
         if ($request->hasFile('image')) {
             
             
-          if (Storage::delete('public/upload/'.$file->path)) {
+          if (File::delete('images/'.$file->path) && File::delete('images/thumbs/'.$file->path)) {
             $filename=random_int(0,time()).$request->image->getClientOriginalName();
             $filesize=$request->image->getClientSize();
-            $request->image->storeAs('public/upload',$filename);
+            $cover=Image::make($file)->fit(700, 500)->save('images/'.$filename);
+           $thumb=Image::make($file)->fit(400, 320)->save('images/thumbs'.$filename);
             $input['path']=$filename;
             $input['size']=$filesize;
             
@@ -243,14 +255,15 @@ class uploadController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+public function destroy($id)
     {
  $file=Upload::findOrFail($id);
-  if (Storage::delete('public/upload/'.$file->path)) {
+  if (File::delete('images/'.$file->path) && File::delete('images/thumbs/'.$file->path)) {
     $file->delete();
  return back()->with(['message'=>'File deleted successfully']);
+ }else{
+    return $file->path;
  }
-
  
-    }
+  }
 }

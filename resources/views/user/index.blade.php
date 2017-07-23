@@ -44,7 +44,7 @@
                 <div class="col-lg-4 col-md-4 col-xs-12 thumb">
                  <small class='text-muted'>{{ $image->title }}</small>
                     <a class="thumbnail" href="#">
-                        <img class="img-responsive" src="/storage/upload/{{$image->path}}" alt="">
+                        <img class="img-responsive" src="{{$image->thumb()}}" alt="">
                     </a>
                
                    

@@ -19,4 +19,14 @@ class Upload extends Model
    	// belongsTo(RelatedModel, foreignKey = user_id, keyOnRelatedModel = id)
    	return $this->belongsTo(User::class);
    }
+
+   public function thumb()
+   {
+     return '/images/thumbs/'.$this->path;
+   }
+
+   public function cover()
+   {
+     return '/images/'.$this->path;
+   }
 }

@@ -78,8 +78,8 @@
 
 
                         img-raised img-rounded">
-                         <a class="" href="storage/upload/{{ $image->path }}" data-lightbox="trip" data-title="{{ $image->title }}">
-                            <img data-action="zoom" class="img-responsive img-raised img-rounded" src="storage/upload/{{$image->path}}" alt="{{ $image->title }}"/>
+                         <a class="" href="{{ $image->cover() }}" data-lightbox="trip" data-title="{{ $image->title }}">
+                            <img data-action="zoom" class="img-responsive img-raised img-rounded" src="{{$image->thumb()}}" alt="{{ $image->title }}"/>
                             <figcaption>
                                 <div>
                                     <h2>{{$image->created_at->diffForHumans()}}</h2>
