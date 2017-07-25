@@ -451,7 +451,7 @@ a.thumbnail img {
     width: 100%;
 }
 .grid a {
-    cursor: -webkit-zoom-in;
+    // cursor: -webkit-zoom-in;
 }
 figure.effect-milo img {
     max-width: none;
@@ -491,6 +491,9 @@ figure.effect-milo img {
   .grid figure h2 {
     
     font-size: 30px;
+}
+.grid figure{
+  cursor: default;
 }
 .images_wrap h3{
       margin: 30px 0 30px;

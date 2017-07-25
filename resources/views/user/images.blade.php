@@ -2,8 +2,8 @@
 @section('heading')
     {{-- expr --}}
          <div class="col-lg-12">
-                <h1 class="">welcome to Uppic</h1>
-                <p>share your photo memory with us</p>
+                <h1 class="">all photo of {{ $user->name  }}</h1>
+                
         </div>
 @endsection
 
@@ -121,7 +121,8 @@
 
         </div>
         <center>{{$images->links()}}</center>
-        
+         @else
+         <h2>nothing uploaded</h2>
           @endif 
        
 

@@ -14,7 +14,7 @@ class UserController extends Controller
 
 
     public function __construct(){
-        $this->middleware('auth');
+        $this->middleware('auth')->except('userImage');
     }
     /**
      * Display a listing of the resource.
@@ -27,6 +27,21 @@ class UserController extends Controller
         $images=$user->upload()->paginate(9);
         return view('user.index',compact('images','user'));
     }
+
+      /**
+     * Display a listing of the resource of specific user.
+     *
+     * @return \Illuminate\Http\Response
+     *@param $name
+     */
+    public function userImage($name)
+    {
+       
+        $user=User::whereName($name)->firstOrFail();
+        $images=$user->upload()->paginate(9);
+        return view('user.images',compact('images','user'));
+    }
+
 
     /**
      * Show the form for creating a new resource.
