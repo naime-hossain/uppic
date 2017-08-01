@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLoveTable extends Migration
+class CreateFavouritesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreateLoveTable extends Migration
      */
     public function up()
     {
-        Schema::create('love', function (Blueprint $table) {
+        Schema::create('favourites', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('upload_id');
+            $table->string('ip_address');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreateLoveTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('love');
+        Schema::dropIfExists('favourites');
     }
 }

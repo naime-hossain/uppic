@@ -26,5 +26,8 @@ Route::put('user/{id}/edit', 'UserController@update')->name('user.update');
 Route::delete('user/{id}/destroy', 'UserController@destroy')->name('user.destroy');
 // Route::get('user/upload', 'UserController@index')->name('user.upload');
 
+//Image favourite controller
+Route::post('favourite/{photo_id}','FavouriteController@store')->name('favourite');
+
 
 

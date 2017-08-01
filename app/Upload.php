@@ -20,6 +20,17 @@ class Upload extends Model
    	return $this->belongsTo(User::class);
    }
 
+   /**
+    * Upload has many Favourites.
+    *
+    * @return \Illuminate\Database\Eloquent\Relations\HasMany
+    */
+   public function favourites()
+   {
+     // hasMany(RelatedModel, foreignKeyOnRelatedModel = upload_id, localKey = id)
+     return $this->hasMany(Favourite::class);
+   }
+
    public function thumb()
    {
      return '/images/thumbs/'.$this->path;

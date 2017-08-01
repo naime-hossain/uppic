@@ -15,6 +15,9 @@
                 {{-- expr --}}
             
              <div class="images_wrap">
+               @if (Session::has('message'))
+               @include('alert.success')
+               @endif
               <div class="grid">
                      @foreach ($images as $image)
                          {{-- expr --}}
@@ -85,24 +88,29 @@
 
                             <figcaption>
                                 <div>
-                                    <h2>{{$image->created_at->diffForHumans()}}
+                                    <h2>{{count($image->favourites)}} times loved
                     
                                     </h2>
+                                     {!! Form::open(['action'=>['FavouriteController@store',$image->id],'method'=>'post']) !!}
                                     <p class="">By <span>
                                       <a href="{{ route('user.uploads',$image->user->name) }}" title="">{{ $image->user->name }}</a>
                                     </span><br>{{ $image->title }}<br>
                                      
-                                       <a class="btn btn-primary" href="{{ $image->cover() }}" data-lightbox="trip" data-title="{{ $image->title }}"><i class="fa fa-search-plus"></i> </a>
-                  {{--   {!! Form::open(['action'=>['uploadController@destroy',$image->id],'method'=>'post','class'=>'sm-form']) !!}
-                    {!! Form::button("<i class='fa fa-heart'></i>",
-                     [
-                     'class'=>'btn btn-primary',
+                                       <a class="btn btn-primary btn-info" href="{{ $image->cover() }}" data-lightbox="trip" data-title="{{ $image->title }}"><i class="fa fa-search-plus"></i> </a>
+                                     {{--   <a class="btn btn-primary" href="{{ route('') }}" data-lightbox="trip" data-title="{{ $image->title }}"><i class="fa fa-search-plus"></i> </a> --}}
+
+
                    
-                     'type'=>'submit'
-                     ]) !!}
-                     {!! Form::close() !!} --}}
+                          {!! Form::button("<i class='fa fa-heart'></i>",
+                           [
+                           'class'=>'btn btn-simple btn-danger',
+                         
+                           'type'=>'submit'
+                           ]) !!}
+                   
                    
                                     </p>
+                                      {!! Form::close() !!}
                                     
                                 </div>
                        
