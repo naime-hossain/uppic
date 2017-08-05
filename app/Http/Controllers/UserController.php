@@ -144,6 +144,9 @@ class UserController extends Controller
          if ($user->pro_pic) {
             File::delete('images/users/'.$user->pro_pic);
           }
+          if (count($user->uploads)>0) {
+              $user->uploads()->delete();
+          }
           $user->delete();
     }
 

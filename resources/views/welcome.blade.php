@@ -88,29 +88,37 @@
 
                             <figcaption>
                                 <div>
-                                    <h2>{{count($image->favourites)}} times loved
-                    
-                                    </h2>
-                                     {!! Form::open(['action'=>['FavouriteController@store',$image->id],'method'=>'post']) !!}
-                                    <p class="">By <span>
-                                      <a href="{{ route('user.uploads',$image->user->name) }}" title="">{{ $image->user->name }}</a>
-                                    </span><br>{{ $image->title }}<br>
-                                     
-                                       <a class="btn btn-primary btn-info" href="{{ $image->cover() }}" data-lightbox="trip" data-title="{{ $image->title }}"><i class="fa fa-search-plus"></i> </a>
-                                     {{--   <a class="btn btn-primary" href="{{ route('') }}" data-lightbox="trip" data-title="{{ $image->title }}"><i class="fa fa-search-plus"></i> </a> --}}
-
-
-                   
-                          {!! Form::button("<i class='fa fa-heart'></i>",
+                                  {!! Form::open(['action'=>['FavouriteController@store',$image->id],'method'=>'post']) !!}
+                                    <h2>
+                                    {{count($image->favourites) .' '}}
+                                   {{--  <span>
+                                      <i class="fa fa-heart text-danger"></i> </span> --}}
+                            {!! Form::button("<i class='fa fa-heart'></i>",
                            [
-                           'class'=>'btn btn-simple btn-danger',
+                           'class'=>'text-danger',
                          
                            'type'=>'submit'
                            ]) !!}
                    
+                    
+                                    </h2>
+                                    {!! Form::close() !!}
+                                   
+                                    <p class="">By <span>
+                                       @if($image->user)
+                                      <a href="{{ route('user.uploads',$image->user->name) }}" title="">{{ $image->user->name }}</a>
+                                      @endif
+                                    </span><br>{{ $image->title }}<br>
+                                     
+                                       <a class="btn btn-primary btn-info" href="{{ $image->cover() }}" data-lightbox="trip" data-title="{{ $image->title }}"><i class="fa fa-search-plus"></i> </a>
+                                   
+
+
+                   
+                         
                    
                                     </p>
-                                      {!! Form::close() !!}
+                                      
                                     
                                 </div>
                        
