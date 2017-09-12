@@ -1,4 +1,0 @@
-upic
-databsename:themegre_uppic
-username:themegre_uppic
-password:?{%5N#1TK%Zp
