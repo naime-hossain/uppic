@@ -5,8 +5,9 @@
 /vendor
 /.idea
 /.vagrant
-/pass.txt
+
 Homestead.json
 Homestead.yaml
 npm-debug.log
 .env
+pass.txt
