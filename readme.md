@@ -1,3 +1,35 @@
+# A User based photo upload Application USing Laravel framework
+
+## About this application
+
+This application is created by [Naime Hossain Bhuiyan](http://naimehossain.com ). <br>
+##### Framework: Laravel 5.4
+##### Language : PHP 5.7
+
+## Install
+- Type this line:
+```
+composer update
+```
+- set your database details in .env file and then.
+
+- Migrate Database by typing this:
+```
+php artisan migrate
+```
+
+
+
+## Live Demo
+
+##### Live Link: http://uppic.naimehossain.com/
+
+# Contact me 
+Facebook: facebook.com/naime.hossain.3<br>
+website:http://naimehossain.com 
+<br>
+Email: hossain.naime@yahoo.com,naime.hossain93@gmail.com, 
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
