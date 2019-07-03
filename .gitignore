@@ -6,6 +6,9 @@
 /.idea
 /.vagrant
 
+/package-lock.jsn
+package-lock.jsn
+
 Homestead.json
 Homestead.yaml
 npm-debug.log
